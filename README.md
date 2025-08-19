@@ -1,48 +1,72 @@
 # Customer-Churn-Prediction
-📊 Data-driven analysis for Conagra Brands on meat substitutes (2020–2024). Explored packaging, pricing, discounts &amp; regions using Python, Tableau &amp; predictive modeling to deliver insights and growth strategies.
+📊 Applied ML project predicting customer churn for a video streaming service. Built logistic regression & decision tree models with oversampling to improve sensitivity. Insights help reduce churn by targeting at-risk customers.
 
 
-# Conagra Meat Substitutes Analysis  
+# Predictive Analytics for Customer Churn  
 
-This project explores data-driven strategies to help **Conagra Brands** unlock growth in the meat substitutes category. Using point-of-sale data from 2020–2024, we analyzed the impact of **packaging, pricing, discounts, and regional trends** on consumer demand.  
+This project applies **machine learning** to predict customer churn in a video streaming service. Using anonymized subscription data, we built interpretable models (logistic regression and decision tree) to identify at-risk customers and recommend retention strategies.  
 
 ---
 
 ## 📌 Objectives  
-- Investigate why the FZ Meat Substitutes category saw a 1.2% decline in buyers since 2020.  
-- Identify factors influencing sales performance.  
-- Provide actionable strategies for sustainable growth.  
+- Predict customer churn based on account, usage, and billing features.  
+- Improve model **sensitivity** (recall for churned customers).  
+- Provide actionable insights to help reduce customer loss.  
+
+---
+
+## 📊 Dataset  
+We used the **Kaggle Predictive Analytics for Customer Churn Dataset**.  
+- **24,378 records** of anonymized customers.  
+- Target variable: `Churn (1 = churned, 0 = not churned)`.  
+- Features include:  
+  - **Numerical:** AccountAge, MonthlyCharges, TotalCharges, ViewingHoursPerWeek, AverageViewingDuration, SupportTicketsPerMonth, ContentDownloadsPerMonth, UserRating.  
+  - **Categorical:** SubscriptionType, PaymentMethod, ContentType, DeviceRegistered, GenrePreference, Gender, PaperlessBilling, etc.  
 
 ---
 
 ## 🔍 Approach  
-1. **Exploratory Data Analysis (EDA):** Univariate & multivariate analysis with visualizations.  
-2. **Data Cleaning & Preprocessing:** Missing values, outliers, consistency checks.  
-3. **Predictive Modeling:** Linear, polynomial & logistic regression with optimization.  
-4. **Statistical Testing:** ANOVA, t-test, f-test for validation.  
-5. **Visualization:** Python (Matplotlib, Seaborn) & Tableau dashboards.  
+1. **Data Exploration:** Distribution checks, correlation heatmaps, churn histograms.  
+2. **Feature Engineering:** One-hot encoding for categorical variables, scaling numerical features.  
+3. **Modeling:**  
+   - Logistic Regression (baseline + oversampled)  
+   - Decision Tree (CART, tuned via GridSearch)  
+4. **Oversampling:** Balanced the dataset (50/50 churn vs non-churn) to boost sensitivity.  
+5. **Evaluation:** Accuracy, Precision, Recall (Sensitivity), ROC-AUC.  
 
 ---
 
-## 📊 Key Insights  
-- Larger **packaging sizes** drive higher sales volumes.  
-- **Discounts** significantly boost sales, but vary by product type.  
-- **Regional demand** is strongest in Northeast, Southeast & Mid-South.  
-- Sustainable positioning aligns well with evolving consumer trends.  
+## 📈 Results  
+- **Baseline Logistic Regression:** Accuracy 0.83, Precision 0.57, Sensitivity 0.12  
+- **Oversampled Logistic Regression:** Accuracy 0.68, Precision 0.32, Sensitivity 0.70, AUC = 0.75  
+- **Oversampled Decision Tree:** Accuracy 0.64, Precision 0.29, Sensitivity 0.69, AUC = 0.72  
+
+✅ **Best Model:** Oversampled Logistic Regression → best tradeoff between interpretability & predictive power.  
+
+---
+
+## 💡 Key Insights  
+- Customers most likely to churn are:  
+  - **New accounts** (low AccountAge)  
+  - **Low engagement** (low viewing hours, short durations, few downloads)  
+  - **High monthly charges**  
+- Reducing churn requires:  
+  - Early engagement strategies for new users.  
+  - Personalized discounts for high-charge accounts.  
+  - Features that encourage **longer viewing & content interaction**.  
 
 ---
 
 ## 🛠️ Tools & Technologies  
 - **Python:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn  
-- **Visualization:** Tableau  
-- **Statistical Analysis:** Regression, ANOVA, correlation  
+- **ML Models:** Logistic Regression, Decision Trees (CART)  
+- **Techniques:** Oversampling, GridSearchCV, ROC Curve Analysis  
 
 ---
 
-## ✅ Conclusion  
-By optimizing **packaging, pricing, and regional strategies**, Conagra can expand its market penetration and consumer engagement. This project demonstrates the power of **data analytics and predictive modeling** in shaping strategic business decisions.  
+## ⚙️ How to Run This Project  
 
----
-
-👨‍💻 **Contributors:** Group 11 – Albin Poulose, Ashiq Mohammed Al Ameen, Azime Gulin Divarci, Bhavana Balagopal, Priyanka Das, Srivani Kakumani, Suman Anand  
-
+### 1. Clone the Repository  
+```bash
+git clone https://github.com/your-username/customer-churn-prediction.git
+cd customer-churn-prediction
